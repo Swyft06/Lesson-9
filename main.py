@@ -5,6 +5,7 @@ root = Tk()
 
 root.geometry("300x300")
 root.title("Timer")
+
 hour = StringVar()
 hour.set("00")
 
@@ -25,6 +26,7 @@ def countdown():
         hours = 00
         if mins > 60:
             hours,mins = divmod(mins,60)
+        #2d = two digits
         hour.set("{00:2d}".format(hours))
         minute.set("{00:2d}".format(mins))
         second.set("{00:2d}".format(secs))
