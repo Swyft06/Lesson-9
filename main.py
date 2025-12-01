@@ -14,8 +14,10 @@ minute.set("00")
 
 second = StringVar()
 second.set("00")
-
+temp = 0
 def countdown():
+    global temp
+    
     try:
         temp=(int(hour.get())*3600)+(int(minute.get())*60)+(int(second.get()))
 
@@ -36,6 +38,14 @@ def countdown():
             messagebox.showinfo("Label",'Times Up!')
         temp = temp -1
 
+def resetTime():
+    global temp
+    hour.set("00")
+    minute.set("00")
+    second.set("00")
+    temp = 0
+
+
 hourEntry = Entry(root,width = 2,font=("Arial",18,"bold"),textvariable=hour)
 hourEntry.place(x=80,y=20)
 
@@ -48,7 +58,8 @@ secondEntry.place(x=160,y=20)
 setButton = Button(root,text="Set Time Countdown",font = ("Arial",14,"bold"),command = countdown)
 setButton.place(x=40,y=180)
 
-
+resetButton = Button(root,text = "Reset",font = ("Arial", 14,"bold"),command = resetTime)
+resetButton.place(x=40,y= 240)
 
 
 root.mainloop()
